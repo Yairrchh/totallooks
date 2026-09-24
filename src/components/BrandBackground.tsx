@@ -16,10 +16,21 @@ function RadarArcs({ opacityClass }: { opacityClass: string }) {
   );
 }
 
-function GlowStreak({ opacityClass }: { opacityClass: string }) {
+function GlowStreak({
+  opacityClass,
+  rotate = "rotate-[-6deg]",
+  top,
+  blurClass = "blur-2xl",
+}: {
+  opacityClass: string;
+  rotate?: string;
+  top?: string;
+  blurClass?: string;
+}) {
   return (
     <div
-      className={`absolute -bottom-10 left-[-20%] h-24 w-[140%] rotate-[-6deg] bg-gradient-to-r from-transparent via-tl-red to-transparent blur-2xl ${opacityClass}`}
+      className={`absolute left-[-20%] h-24 w-[140%] ${top ? "" : "-bottom-10"} ${rotate} bg-gradient-to-r from-transparent via-tl-red to-transparent ${blurClass} ${opacityClass}`}
+      style={top ? { top } : undefined}
       aria-hidden="true"
     />
   );
@@ -56,8 +67,27 @@ function TapeBand({
 export default function BrandBackground({
   variant = "subtle",
 }: {
-  variant?: "full" | "subtle" | "ambient";
+  variant?: "full" | "subtle" | "ambient" | "mobileHero";
 }) {
+  if (variant === "mobileHero") {
+    // Mobile-only: a crisp, readable tape band up top (crossing the
+    // headline), and a steeper, heavily blurred glowing streak further
+    // down — mirrors the two distinct treatments in the client's own
+    // campaign shot.
+    return (
+      <div className="pointer-events-none absolute inset-0 overflow-hidden text-white/25 sm:hidden">
+        <TapeBand top="16%" rotate="-rotate-[8deg]" opacityClass="opacity-90" blurClass="blur-[1px]" />
+        <GlowStreak
+          top="62%"
+          rotate="-rotate-[22deg]"
+          blurClass="blur-xl"
+          opacityClass="opacity-80"
+        />
+        <RadarArcs opacityClass="opacity-30" />
+      </div>
+    );
+  }
+
   if (variant === "full") {
     return (
       <div className="pointer-events-none absolute inset-0 overflow-hidden text-white/20">

@@ -1,9 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
+import BrandBackground from "./BrandBackground";
 
 export default function Hero() {
   return (
     <section className="relative overflow-hidden border-b border-white/10 bg-tl-black px-4 py-16 sm:py-24">
+      <BrandBackground variant="mobileHero" />
       <div className="relative mx-auto grid max-w-6xl items-center gap-10 sm:grid-cols-2">
         <div className="flex flex-col items-start gap-6">
           <span className="rounded-full border border-tl-red px-4 py-1 text-xs font-semibold uppercase tracking-widest text-tl-red">
