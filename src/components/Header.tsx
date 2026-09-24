@@ -15,7 +15,7 @@ export default function Header() {
           <Image
             src="/logo.svg"
             alt="TOTAL LOOKS"
-            width={140}
+            width={92}
             height={40}
             priority
             className="h-10 w-auto"

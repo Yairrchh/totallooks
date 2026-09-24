@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { products } from "@/data/products";
@@ -7,6 +8,30 @@ import { effectivePrice } from "@/lib/pricing";
 
 export function generateStaticParams() {
   return products.map((p) => ({ slug: p.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const product = products.find((p) => p.slug === slug);
+  if (!product) return { title: "Producto no encontrado — TOTAL LOOKS" };
+
+  const price = effectivePrice(product);
+  const title = `${product.name} — $${price} | TOTAL LOOKS`;
+  const description = `${product.description} ${product.brand} · Disponible en talla ${product.sizes.join(", ")}.`;
+
+  return {
+    title,
+    description,
+    openGraph: {
+      title,
+      description,
+      images: [{ url: product.images[0] }],
+    },
+  };
 }
 
 export default async function ProductPage({

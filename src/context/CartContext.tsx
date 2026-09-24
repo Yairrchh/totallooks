@@ -58,6 +58,11 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
+    // Intentional: localStorage only exists client-side, so the cart must
+    // start empty on the server-rendered pass and hydrate here to avoid a
+    // markup mismatch. This is the one-time "subscribe to external state on
+    // mount" case, not a derived-state anti-pattern.
+    // eslint-disable-next-line react-hooks/set-state-in-effect
     setLines(readStoredLines());
     setIsMounted(true);
   }, []);

@@ -1,7 +1,7 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
-import { useSearchParams } from "next/navigation";
+import { useMemo, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import ProductCard from "./ProductCard";
 import Select from "./Select";
 import {
@@ -16,23 +16,25 @@ const allCategories = Object.keys(categoryLabels) as Category[];
 const allGenders = Object.keys(genderLabels) as Gender[];
 
 export default function FilterBar() {
+  const router = useRouter();
   const searchParams = useSearchParams();
-  const initialCategory = searchParams.get("categoria") as Category | null;
+  const rawCategory = searchParams.get("categoria") as Category | null;
 
-  const [category, setCategory] = useState<Category | "todas">(
-    initialCategory && allCategories.includes(initialCategory) ? initialCategory : "todas"
-  );
+  // The URL is the source of truth for category (so navbar links, back/forward,
+  // and shareable filtered links all just work) — no local state or effect
+  // needed to keep it in sync.
+  const category: Category | "todas" =
+    rawCategory && allCategories.includes(rawCategory) ? rawCategory : "todas";
+  const setCategory = (v: Category | "todas") => {
+    router.replace(v === "todas" ? "/catalogo" : `/catalogo?categoria=${v}`, {
+      scroll: false,
+    });
+  };
+
   const [gender, setGender] = useState<Gender | "todos">("todos");
   const [brand, setBrand] = useState<string>("todas");
   const [size, setSize] = useState<string>("todas");
   const [color, setColor] = useState<string>("todos");
-
-  useEffect(() => {
-    setCategory(
-      initialCategory && allCategories.includes(initialCategory) ? initialCategory : "todas"
-    );
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [initialCategory]);
 
   const brands = useMemo(
     () => Array.from(new Set(products.map((p) => p.brand))).sort(),

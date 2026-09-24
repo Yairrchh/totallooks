@@ -41,7 +41,13 @@ export default function Footer() {
     <footer className="border-t border-white/10 bg-tl-black px-4 py-12">
       <div className="mx-auto grid max-w-6xl gap-10 sm:grid-cols-3">
         <div className="flex flex-col gap-3">
-          <Image src="/logo.svg" alt="TOTAL LOOKS" width={130} height={38} className="h-9 w-auto" />
+          <Image
+            src="/logo.svg"
+            alt="TOTAL LOOKS"
+            width={88}
+            height={38}
+            className="h-9 w-auto"
+          />
           <p className="max-w-xs text-sm text-tl-grey">
             Ropa deportiva y calzado para hombre y mujer. Tu look sube, los precios bajan.
           </p>

@@ -1,5 +1,11 @@
+import type { Metadata } from "next";
 import { Suspense } from "react";
 import FilterBar from "@/components/FilterBar";
+
+export const metadata: Metadata = {
+  title: "Catálogo — TOTAL LOOKS",
+  description: "Ropa deportiva, calzado, perfumes y accesorios para hombre y mujer.",
+};
 
 export default function CatalogoPage() {
   return (
