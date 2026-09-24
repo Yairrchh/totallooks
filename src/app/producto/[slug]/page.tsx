@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { products } from "@/data/products";
 import AddToCartForm from "@/components/AddToCartForm";
 import BrandBackground from "@/components/BrandBackground";
+import BackButton from "@/components/BackButton";
 
 export function generateStaticParams() {
   return products.map((p) => ({ slug: p.slug }));
@@ -23,6 +24,7 @@ export default async function ProductPage({
       <main className="relative mx-auto max-w-5xl px-4 py-10">
       <div className="grid gap-8 sm:grid-cols-2">
         <div className="relative aspect-[3/4] overflow-hidden rounded-lg bg-tl-surface">
+          <BackButton />
           <Image
             src={product.images[0]}
             alt={product.name}
