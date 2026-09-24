@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useCart } from "@/context/CartContext";
 import CheckoutPanel from "./CheckoutPanel";
 import { effectivePrice } from "@/lib/pricing";
@@ -29,7 +30,16 @@ export default function CartDrawer() {
 
         <div className="flex-1 overflow-y-auto px-5 py-4">
           {lines.length === 0 ? (
-            <p className="text-tl-grey">Tu carrito está vacío. Agregá algo del catálogo.</p>
+            <div className="flex flex-col items-start gap-4">
+              <p className="text-tl-grey">Tu carrito está vacío.</p>
+              <Link
+                href="/catalogo"
+                onClick={close}
+                className="rounded-full bg-tl-red px-6 py-2.5 text-sm font-semibold uppercase tracking-wide transition hover:bg-tl-red-dark"
+              >
+                Seguir comprando
+              </Link>
+            </div>
           ) : (
             <ul className="flex flex-col gap-4">
               {lines.map((l) => (
