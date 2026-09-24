@@ -3,6 +3,7 @@ import { Anton, Barlow } from "next/font/google";
 import { CartProvider } from "@/context/CartContext";
 import Header from "@/components/Header";
 import CartDrawer from "@/components/CartDrawer";
+import Footer from "@/components/Footer";
 import "./globals.css";
 
 const anton = Anton({
@@ -35,6 +36,7 @@ export default function RootLayout({
         <CartProvider>
           <Header />
           {children}
+          <Footer />
           <CartDrawer />
         </CartProvider>
       </body>
