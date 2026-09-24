@@ -23,6 +23,7 @@ type CartContextValue = {
   addItem: (product: Product, size: string, color: string, qty: number) => void;
   removeItem: (lineId: string) => void;
   updateQty: (lineId: string, qty: number) => void;
+  clearCart: () => void;
   subtotal: number;
   itemCount: number;
   isOpen: boolean;
@@ -99,6 +100,10 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     );
   };
 
+  const clearCart = () => {
+    setLines([]);
+  };
+
   const subtotal = useMemo(
     () => lines.reduce((sum, l) => sum + effectivePrice(l.product) * l.qty, 0),
     [lines]
@@ -115,6 +120,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         addItem,
         removeItem,
         updateQty,
+        clearCart,
         subtotal,
         itemCount,
         isOpen,

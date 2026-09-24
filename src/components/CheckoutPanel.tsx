@@ -12,13 +12,21 @@ export default function CheckoutPanel({
   lines: CartLine[];
   subtotal: number;
 }) {
-  const { close } = useCart();
+  const { close, clearCart } = useCart();
   const [name, setName] = useState("");
+  const [isConfirming, setIsConfirming] = useState(false);
   const isEmpty = lines.length === 0;
 
-  const handleCheckout = () => {
+  const handleCheckoutClick = () => {
+    if (!isConfirming) {
+      setIsConfirming(true);
+      return;
+    }
     const message = buildOrderMessage(lines, subtotal, name.trim() || undefined);
     window.open(buildWhatsAppUrl(message), "_blank", "noopener,noreferrer");
+    clearCart();
+    setIsConfirming(false);
+    close();
   };
 
   return (
@@ -41,16 +49,32 @@ export default function CheckoutPanel({
       </div>
 
       <div className="flex flex-col gap-2">
+        {isConfirming && (
+          <p className="text-center text-xs text-tl-grey">
+            ¿Confirmás el pedido? Se va a abrir WhatsApp.
+          </p>
+        )}
+
         <button
           type="button"
-          onClick={handleCheckout}
+          onClick={handleCheckoutClick}
           disabled={isEmpty}
           className="w-full rounded-full bg-tl-red py-3 text-center font-semibold uppercase tracking-wide text-tl-white transition hover:bg-tl-red-dark disabled:cursor-not-allowed disabled:bg-white/10 disabled:text-tl-grey"
         >
-          Finalizar pedido por WhatsApp
+          {isConfirming ? "Sí, enviar pedido" : "Finalizar pedido por WhatsApp"}
         </button>
 
-        {!isEmpty && (
+        {isConfirming && (
+          <button
+            type="button"
+            onClick={() => setIsConfirming(false)}
+            className="w-full rounded-full border border-white/20 py-3 text-center text-sm font-semibold uppercase tracking-wide transition hover:border-tl-red hover:text-tl-red"
+          >
+            Cancelar
+          </button>
+        )}
+
+        {!isEmpty && !isConfirming && (
           <Link
             href="/catalogo"
             onClick={close}
