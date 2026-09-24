@@ -8,7 +8,7 @@ export default function Hero() {
       <BrandBackground variant="mobileHero" />
       <div className="relative mx-auto grid max-w-6xl items-center gap-10 sm:grid-cols-2">
         <div className="flex flex-col items-start gap-6">
-          <span className="rounded-full border border-tl-red px-4 py-1 text-xs font-semibold uppercase tracking-widest text-tl-red">
+          <span className="order-4 rounded-full border border-tl-red px-4 py-1 text-xs font-semibold uppercase tracking-widest text-tl-red sm:order-none">
             Total Boost · Hasta 60% OFF
           </span>
           <h1 className="font-display text-5xl uppercase leading-[0.95] sm:text-7xl">
