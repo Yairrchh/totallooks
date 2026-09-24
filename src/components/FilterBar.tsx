@@ -3,9 +3,16 @@
 import { useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import ProductCard from "./ProductCard";
-import { products, categoryLabels, type Category } from "@/data/products";
+import {
+  products,
+  categoryLabels,
+  genderLabels,
+  type Category,
+  type Gender,
+} from "@/data/products";
 
 const allCategories = Object.keys(categoryLabels) as Category[];
+const allGenders = Object.keys(genderLabels) as Gender[];
 
 export default function FilterBar() {
   const searchParams = useSearchParams();
@@ -14,6 +21,7 @@ export default function FilterBar() {
   const [category, setCategory] = useState<Category | "todas">(
     initialCategory && allCategories.includes(initialCategory) ? initialCategory : "todas"
   );
+  const [gender, setGender] = useState<Gender | "todos">("todos");
   const [brand, setBrand] = useState<string>("todas");
   const [size, setSize] = useState<string>("todas");
   const [color, setColor] = useState<string>("todos");
@@ -33,6 +41,7 @@ export default function FilterBar() {
 
   const filtered = products.filter((p) => {
     if (category !== "todas" && p.category !== category) return false;
+    if (gender !== "todos" && p.gender !== gender && p.gender !== "unisex") return false;
     if (brand !== "todas" && p.brand !== brand) return false;
     if (size !== "todas" && !p.sizes.includes(size)) return false;
     if (color !== "todos" && !p.colors.includes(color)) return false;
@@ -41,6 +50,7 @@ export default function FilterBar() {
 
   const clearFilters = () => {
     setCategory("todas");
+    setGender("todos");
     setBrand("todas");
     setSize("todas");
     setColor("todos");
@@ -60,6 +70,21 @@ export default function FilterBar() {
               {categoryLabels[c]}
             </option>
           ))}
+        </select>
+
+        <select
+          value={gender}
+          onChange={(e) => setGender(e.target.value as Gender | "todos")}
+          className="rounded border border-white/20 bg-tl-surface px-3 py-2 text-sm"
+        >
+          <option value="todos">Todos los géneros</option>
+          {allGenders
+            .filter((g) => g !== "unisex")
+            .map((g) => (
+              <option key={g} value={g}>
+                {genderLabels[g]}
+              </option>
+            ))}
         </select>
 
         <select
@@ -101,7 +126,11 @@ export default function FilterBar() {
           ))}
         </select>
 
-        {(category !== "todas" || brand !== "todas" || size !== "todas" || color !== "todos") && (
+        {(category !== "todas" ||
+          gender !== "todos" ||
+          brand !== "todas" ||
+          size !== "todas" ||
+          color !== "todos") && (
           <button
             type="button"
             onClick={clearFilters}
