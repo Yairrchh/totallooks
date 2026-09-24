@@ -41,12 +41,22 @@ export default function ProductCard({ product }: { product: Product }) {
             -{product.discountPercent}%
           </span>
         )}
+      </div>
+
+      <div className="relative flex flex-1 flex-col gap-1 p-3 pr-12">
+        <h3 className="font-semibold leading-tight">{product.name}</h3>
+        <div className="mt-auto flex items-baseline gap-2">
+          <p className="font-display text-lg text-tl-red">${price}</p>
+          {hasDiscount && (
+            <p className="text-sm text-tl-grey line-through">${product.price}</p>
+          )}
+        </div>
 
         <button
           type="button"
           onClick={handleQuickAdd}
           aria-label={`Agregar ${product.name} al carrito`}
-          className="absolute bottom-2 right-2 z-20 flex h-9 w-9 items-center justify-center rounded-full bg-tl-red text-tl-white shadow-lg shadow-black/40 transition hover:bg-tl-red-dark"
+          className="absolute bottom-2 right-2 z-20 flex h-9 w-9 items-center justify-center rounded-full bg-tl-white text-tl-black shadow-lg shadow-black/40 transition hover:bg-tl-grey"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -62,16 +72,6 @@ export default function ProductCard({ product }: { product: Product }) {
             <path d="M12 5v14M5 12h14" />
           </svg>
         </button>
-      </div>
-
-      <div className="flex flex-1 flex-col gap-1 p-3">
-        <h3 className="font-semibold leading-tight">{product.name}</h3>
-        <div className="mt-auto flex items-baseline gap-2">
-          <p className="font-display text-lg text-tl-red">${price}</p>
-          {hasDiscount && (
-            <p className="text-sm text-tl-grey line-through">${product.price}</p>
-          )}
-        </div>
       </div>
     </div>
   );
