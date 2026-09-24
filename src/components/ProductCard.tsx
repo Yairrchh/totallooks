@@ -43,7 +43,7 @@ export default function ProductCard({ product }: { product: Product }) {
         )}
       </div>
 
-      <div className="relative flex flex-1 flex-col gap-1 p-3 pr-12">
+      <div className="relative flex flex-1 flex-col gap-1 p-3 pr-10 sm:pr-12">
         <h3 className="font-semibold leading-tight">{product.name}</h3>
         <div className="mt-auto flex items-baseline gap-2">
           <p className="font-display text-lg text-tl-red">${price}</p>
@@ -56,7 +56,7 @@ export default function ProductCard({ product }: { product: Product }) {
           type="button"
           onClick={handleQuickAdd}
           aria-label={`Agregar ${product.name} al carrito`}
-          className="absolute bottom-2 right-2 z-20 flex h-9 w-9 items-center justify-center rounded-full bg-tl-white text-tl-black shadow-lg shadow-black/40 transition hover:bg-tl-grey"
+          className="absolute bottom-2 right-2 z-20 flex h-7 w-7 items-center justify-center rounded-full bg-tl-white text-tl-black shadow-lg shadow-black/40 transition hover:bg-tl-grey sm:h-9 sm:w-9"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -66,7 +66,7 @@ export default function ProductCard({ product }: { product: Product }) {
             strokeWidth="2.5"
             strokeLinecap="round"
             strokeLinejoin="round"
-            className="h-4 w-4"
+            className="h-3.5 w-3.5 sm:h-4 sm:w-4"
             aria-hidden="true"
           >
             <path d="M12 5v14M5 12h14" />
