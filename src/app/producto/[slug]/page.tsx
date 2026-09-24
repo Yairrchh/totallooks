@@ -2,6 +2,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { products } from "@/data/products";
 import AddToCartForm from "@/components/AddToCartForm";
+import BrandBackground from "@/components/BrandBackground";
 
 export function generateStaticParams() {
   return products.map((p) => ({ slug: p.slug }));
@@ -17,7 +18,9 @@ export default async function ProductPage({
   if (!product) notFound();
 
   return (
-    <main className="mx-auto max-w-5xl px-4 py-10">
+    <div className="relative overflow-hidden">
+      <BrandBackground variant="subtle" />
+      <main className="relative mx-auto max-w-5xl px-4 py-10">
       <div className="grid gap-8 sm:grid-cols-2">
         <div className="relative aspect-[3/4] overflow-hidden rounded-lg bg-tl-surface">
           <Image
@@ -38,6 +41,7 @@ export default async function ProductPage({
           <AddToCartForm product={product} />
         </div>
       </div>
-    </main>
+      </main>
+    </div>
   );
 }

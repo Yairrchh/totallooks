@@ -12,7 +12,14 @@ export default function Header() {
     <header className="sticky top-0 z-40 border-b border-white/10 bg-tl-black/95 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
         <Link href="/" className="shrink-0">
-          <Image src="/logo.svg" alt="TOTAL LOOKS" width={140} height={40} priority />
+          <Image
+            src="/logo.svg"
+            alt="TOTAL LOOKS"
+            width={140}
+            height={40}
+            priority
+            className="h-10 w-auto"
+          />
         </Link>
 
         <nav className="hidden items-center gap-6 text-sm font-semibold uppercase tracking-wide sm:flex">
