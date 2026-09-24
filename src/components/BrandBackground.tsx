@@ -56,7 +56,7 @@ function TapeBand({
 export default function BrandBackground({
   variant = "subtle",
 }: {
-  variant?: "full" | "subtle";
+  variant?: "full" | "subtle" | "ambient";
 }) {
   if (variant === "full") {
     return (
@@ -66,6 +66,21 @@ export default function BrandBackground({
         <TapeBand top="72%" rotate="-rotate-[9deg]" opacityClass="opacity-25" blurClass="blur-[2px]" />
         <RadarArcs opacityClass="opacity-25" />
         <GlowStreak opacityClass="opacity-50" />
+      </div>
+    );
+  }
+
+  if (variant === "ambient") {
+    // Meant to sit in a viewport-fixed wrapper, so it reads behind whatever
+    // content doesn't fully cover it (page margins, gaps between cards) no
+    // matter where the page is scrolled to.
+    return (
+      <div className="pointer-events-none absolute inset-0 overflow-hidden text-white/15">
+        <TapeBand top="12%" rotate="-rotate-[8deg]" opacityClass="opacity-[0.16]" blurClass="blur-[2px]" />
+        <TapeBand top="55%" rotate="-rotate-[6deg]" opacityClass="opacity-[0.12]" blurClass="blur-[3px]" />
+        <TapeBand top="85%" rotate="-rotate-[9deg]" opacityClass="opacity-[0.14]" blurClass="blur-[2px]" />
+        <RadarArcs opacityClass="opacity-[0.16]" />
+        <GlowStreak opacityClass="opacity-[0.25]" />
       </div>
     );
   }

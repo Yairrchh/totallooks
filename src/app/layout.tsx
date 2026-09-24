@@ -4,6 +4,7 @@ import { CartProvider } from "@/context/CartContext";
 import Header from "@/components/Header";
 import CartDrawer from "@/components/CartDrawer";
 import Footer from "@/components/Footer";
+import BrandBackground from "@/components/BrandBackground";
 import "./globals.css";
 
 const anton = Anton({
@@ -33,6 +34,9 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${anton.variable} ${barlow.variable}`}>
       <body className="bg-tl-black text-tl-white font-sans min-h-screen">
+        <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+          <BrandBackground variant="ambient" />
+        </div>
         <CartProvider>
           <Header />
           {children}
