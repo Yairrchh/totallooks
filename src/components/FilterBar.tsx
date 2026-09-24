@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import ProductCard from "./ProductCard";
 import {
@@ -25,6 +25,13 @@ export default function FilterBar() {
   const [brand, setBrand] = useState<string>("todas");
   const [size, setSize] = useState<string>("todas");
   const [color, setColor] = useState<string>("todos");
+
+  useEffect(() => {
+    setCategory(
+      initialCategory && allCategories.includes(initialCategory) ? initialCategory : "todas"
+    );
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [initialCategory]);
 
   const brands = useMemo(
     () => Array.from(new Set(products.map((p) => p.brand))).sort(),
