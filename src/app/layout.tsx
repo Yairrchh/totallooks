@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Anton, Barlow } from "next/font/google";
 import { CartProvider } from "@/context/CartContext";
+import Header from "@/components/Header";
+import CartDrawer from "@/components/CartDrawer";
 import "./globals.css";
 
 const anton = Anton({
@@ -30,7 +32,11 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${anton.variable} ${barlow.variable}`}>
       <body className="bg-tl-black text-tl-white font-sans min-h-screen">
-        <CartProvider>{children}</CartProvider>
+        <CartProvider>
+          <Header />
+          {children}
+          <CartDrawer />
+        </CartProvider>
       </body>
     </html>
   );
