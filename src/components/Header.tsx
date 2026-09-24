@@ -33,12 +33,26 @@ export default function Header() {
         <button
           type="button"
           onClick={open}
-          aria-label="Abrir carrito"
-          className="relative rounded-full border border-white/20 px-4 py-2 text-sm font-semibold uppercase tracking-wide hover:border-tl-red hover:text-tl-red"
+          aria-label={`Abrir carrito${itemCount > 0 ? ` (${itemCount} producto${itemCount === 1 ? "" : "s"})` : ""}`}
+          className="relative flex h-10 w-10 items-center justify-center rounded-full border border-white/20 hover:border-tl-red hover:text-tl-red"
         >
-          Carrito
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="h-5 w-5"
+            aria-hidden="true"
+          >
+            <circle cx="9" cy="21" r="1" />
+            <circle cx="19" cy="21" r="1" />
+            <path d="M2.5 2.5h2l2.6 12.6a2 2 0 0 0 2 1.6h8.1a2 2 0 0 0 2-1.6L21 6.5H6" />
+          </svg>
           {itemCount > 0 && (
-            <span className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full bg-tl-red text-xs font-bold text-tl-white">
+            <span className="absolute -right-1.5 -top-1.5 flex h-5 w-5 items-center justify-center rounded-full bg-tl-red text-xs font-bold text-tl-white">
               {itemCount}
             </span>
           )}
