@@ -25,13 +25,13 @@ export default function Hero() {
           </Link>
         </div>
 
-        <div className="relative hidden aspect-[4/5] w-full overflow-hidden rounded-2xl sm:block">
+        <div className="relative mx-auto hidden aspect-square w-full max-w-sm overflow-hidden rounded-2xl border border-white/10 shadow-2xl shadow-black/50 sm:block">
           <Image
             src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=1000&q=80"
             alt="Tenis Runner Pro Nike"
             fill
             className="object-cover"
-            sizes="(max-width: 1024px) 0px, 50vw"
+            sizes="(max-width: 1024px) 0px, 384px"
             priority
           />
         </div>
