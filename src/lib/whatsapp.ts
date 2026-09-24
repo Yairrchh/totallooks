@@ -1,4 +1,5 @@
 import type { CartLine } from "@/context/CartContext";
+import { effectivePrice } from "@/lib/pricing";
 
 export const SELLER_WHATSAPP_NUMBER = "584144854795";
 
@@ -13,7 +14,7 @@ export function buildOrderMessage(
 
   const items = lines
     .map((l) => {
-      const lineTotal = (l.product.price * l.qty).toFixed(2);
+      const lineTotal = (effectivePrice(l.product) * l.qty).toFixed(2);
       return `• ${l.product.name} (${l.color}, talla ${l.size}) x${l.qty} — $${lineTotal}`;
     })
     .join("\n");

@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useCart } from "@/context/CartContext";
 import CheckoutPanel from "./CheckoutPanel";
+import { effectivePrice } from "@/lib/pricing";
 
 export default function CartDrawer() {
   const { isOpen, close, lines, removeItem, updateQty, subtotal } = useCart();
@@ -69,7 +70,7 @@ export default function CartDrawer() {
                     </div>
                   </div>
                   <p className="whitespace-nowrap font-semibold">
-                    ${(l.product.price * l.qty).toFixed(2)}
+                    ${(effectivePrice(l.product) * l.qty).toFixed(2)}
                   </p>
                 </li>
               ))}

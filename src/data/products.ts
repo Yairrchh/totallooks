@@ -9,6 +9,7 @@ export type Product = {
   gender: Gender;
   brand: string;
   price: number;
+  discountPercent?: number;
   sizes: string[];
   colors: string[];
   images: string[];
@@ -41,6 +42,7 @@ export const products: Product[] = [
     gender: "caballero",
     brand: "Nike",
     price: 42,
+    discountPercent: 20,
     sizes: ropaSizes,
     colors: ["Negro", "Gris"],
     images: [
@@ -153,6 +155,7 @@ export const products: Product[] = [
     gender: "dama",
     brand: "Puma",
     price: 34,
+    discountPercent: 50,
     sizes: ["XS", "S", "M", "L", "XL"],
     colors: ["Negro", "Gris"],
     images: [
@@ -232,6 +235,7 @@ export const products: Product[] = [
     gender: "dama",
     brand: "Nike",
     price: 78,
+    discountPercent: 30,
     sizes: shoeSizesDama,
     colors: ["Blanco", "Rosa"],
     images: [
@@ -358,6 +362,7 @@ export const products: Product[] = [
     gender: "caballero",
     brand: "TOTAL LOOKS",
     price: 32,
+    discountPercent: 25,
     sizes: ["50ml", "100ml"],
     colors: ["Original"],
     images: [
@@ -434,6 +439,7 @@ export const products: Product[] = [
     gender: "unisex",
     brand: "Nike",
     price: 18,
+    discountPercent: 40,
     sizes: ["Único"],
     colors: ["Negro", "Blanco", "Rojo"],
     images: [

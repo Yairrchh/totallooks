@@ -8,6 +8,7 @@ import {
   useState,
 } from "react";
 import type { Product } from "@/data/products";
+import { effectivePrice } from "@/lib/pricing";
 
 export type CartLine = {
   lineId: string;
@@ -94,7 +95,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   };
 
   const subtotal = useMemo(
-    () => lines.reduce((sum, l) => sum + l.product.price * l.qty, 0),
+    () => lines.reduce((sum, l) => sum + effectivePrice(l.product) * l.qty, 0),
     [lines]
   );
   const itemCount = useMemo(
