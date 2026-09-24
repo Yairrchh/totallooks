@@ -48,7 +48,14 @@ export default function CartDrawer() {
                     <Image src={l.product.images[0]} alt={l.product.name} fill className="object-cover" sizes="64px" />
                   </div>
                   <div className="flex flex-1 flex-col gap-1">
-                    <p className="font-semibold">{l.product.name}</p>
+                    <div className="flex items-center gap-2">
+                      <p className="font-semibold">{l.product.name}</p>
+                      {l.product.discountPercent && (
+                        <span className="rounded bg-tl-red px-1.5 py-0.5 text-[10px] font-bold text-tl-white">
+                          -{l.product.discountPercent}%
+                        </span>
+                      )}
+                    </div>
                     <p className="text-sm text-tl-grey">
                       {l.color} · Talla {l.size}
                     </p>
@@ -96,9 +103,16 @@ export default function CartDrawer() {
                       </button>
                     </div>
                   </div>
-                  <p className="whitespace-nowrap font-semibold">
-                    ${(effectivePrice(l.product) * l.qty).toFixed(2)}
-                  </p>
+                  <div className="whitespace-nowrap text-right">
+                    <p className="font-semibold">
+                      ${(effectivePrice(l.product) * l.qty).toFixed(2)}
+                    </p>
+                    {l.product.discountPercent && (
+                      <p className="text-xs text-tl-grey line-through">
+                        ${(l.product.price * l.qty).toFixed(2)}
+                      </p>
+                    )}
+                  </div>
                 </li>
               ))}
             </ul>
