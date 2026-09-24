@@ -4,10 +4,10 @@ import ProductCard from "@/components/ProductCard";
 import { products, categoryLabels, type Category } from "@/data/products";
 
 const shortcuts: { category: Category; label: string }[] = [
-  { category: "hombre", label: categoryLabels.hombre },
-  { category: "mujer", label: categoryLabels.mujer },
-  { category: "zapatos-dama", label: "Zapatos Dama" },
-  { category: "zapatos-caballero", label: "Zapatos Caballero" },
+  { category: "zapatos", label: categoryLabels.zapatos },
+  { category: "ropa", label: categoryLabels.ropa },
+  { category: "perfumes", label: categoryLabels.perfumes },
+  { category: "accesorios", label: categoryLabels.accesorios },
 ];
 
 export default function HomePage() {

@@ -23,14 +23,17 @@ export default function Header() {
         </Link>
 
         <nav className="hidden items-center gap-6 text-sm font-semibold uppercase tracking-wide sm:flex">
-          <Link href="/catalogo?categoria=hombre" className="hover:text-tl-red">
-            {categoryLabels.hombre}
+          <Link href="/catalogo?categoria=zapatos" className="hover:text-tl-red">
+            {categoryLabels.zapatos}
           </Link>
-          <Link href="/catalogo?categoria=mujer" className="hover:text-tl-red">
-            {categoryLabels.mujer}
+          <Link href="/catalogo?categoria=ropa" className="hover:text-tl-red">
+            {categoryLabels.ropa}
           </Link>
-          <Link href="/catalogo?categoria=zapatos-dama" className="hover:text-tl-red">
-            Zapatos
+          <Link href="/catalogo?categoria=perfumes" className="hover:text-tl-red">
+            {categoryLabels.perfumes}
+          </Link>
+          <Link href="/catalogo?categoria=accesorios" className="hover:text-tl-red">
+            {categoryLabels.accesorios}
           </Link>
           <Link href="/catalogo" className="hover:text-tl-red">
             Todo
