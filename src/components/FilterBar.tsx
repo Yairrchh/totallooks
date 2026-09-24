@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import ProductCard from "./ProductCard";
+import Select from "./Select";
 import {
   products,
   categoryLabels,
@@ -66,72 +67,57 @@ export default function FilterBar() {
   return (
     <div>
       <div className="mb-8 flex flex-wrap gap-3">
-        <select
+        <Select
           value={category}
-          onChange={(e) => setCategory(e.target.value as Category | "todas")}
-          className="rounded border border-white/20 bg-tl-surface px-3 py-2 text-sm"
-        >
-          <option value="todas">Todas las categorías</option>
-          {allCategories.map((c) => (
-            <option key={c} value={c}>
-              {categoryLabels[c]}
-            </option>
-          ))}
-        </select>
+          onChange={(v) => setCategory(v as Category | "todas")}
+          className="w-44"
+          options={[
+            { value: "todas", label: "Todas las categorías" },
+            ...allCategories.map((c) => ({ value: c, label: categoryLabels[c] })),
+          ]}
+        />
 
-        <select
+        <Select
           value={gender}
-          onChange={(e) => setGender(e.target.value as Gender | "todos")}
-          className="rounded border border-white/20 bg-tl-surface px-3 py-2 text-sm"
-        >
-          <option value="todos">Todos los géneros</option>
-          {allGenders
-            .filter((g) => g !== "unisex")
-            .map((g) => (
-              <option key={g} value={g}>
-                {genderLabels[g]}
-              </option>
-            ))}
-        </select>
+          onChange={(v) => setGender(v as Gender | "todos")}
+          className="w-40"
+          options={[
+            { value: "todos", label: "Todos los géneros" },
+            ...allGenders
+              .filter((g) => g !== "unisex")
+              .map((g) => ({ value: g, label: genderLabels[g] })),
+          ]}
+        />
 
-        <select
+        <Select
           value={brand}
-          onChange={(e) => setBrand(e.target.value)}
-          className="rounded border border-white/20 bg-tl-surface px-3 py-2 text-sm"
-        >
-          <option value="todas">Todas las marcas</option>
-          {brands.map((b) => (
-            <option key={b} value={b}>
-              {b}
-            </option>
-          ))}
-        </select>
+          onChange={setBrand}
+          className="w-40"
+          options={[
+            { value: "todas", label: "Todas las marcas" },
+            ...brands.map((b) => ({ value: b, label: b })),
+          ]}
+        />
 
-        <select
+        <Select
           value={size}
-          onChange={(e) => setSize(e.target.value)}
-          className="rounded border border-white/20 bg-tl-surface px-3 py-2 text-sm"
-        >
-          <option value="todas">Todas las tallas</option>
-          {sizes.map((s) => (
-            <option key={s} value={s}>
-              {s}
-            </option>
-          ))}
-        </select>
+          onChange={setSize}
+          className="w-36"
+          options={[
+            { value: "todas", label: "Todas las tallas" },
+            ...sizes.map((s) => ({ value: s, label: s })),
+          ]}
+        />
 
-        <select
+        <Select
           value={color}
-          onChange={(e) => setColor(e.target.value)}
-          className="rounded border border-white/20 bg-tl-surface px-3 py-2 text-sm"
-        >
-          <option value="todos">Todos los colores</option>
-          {colors.map((c) => (
-            <option key={c} value={c}>
-              {c}
-            </option>
-          ))}
-        </select>
+          onChange={setColor}
+          className="w-36"
+          options={[
+            { value: "todos", label: "Todos los colores" },
+            ...colors.map((c) => ({ value: c, label: c })),
+          ]}
+        />
 
         {(category !== "todas" ||
           gender !== "todos" ||
