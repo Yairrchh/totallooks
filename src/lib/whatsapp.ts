@@ -1,7 +1,7 @@
 import type { CartLine } from "@/context/CartContext";
 import { effectivePrice } from "@/lib/pricing";
 
-export const SELLER_WHATSAPP_NUMBER = "584144854795";
+export const SELLER_WHATSAPP_NUMBER = "584144853795";
 
 export function buildOrderMessage(
   lines: CartLine[],
