@@ -42,16 +42,16 @@ export default function ProductCard({ product }: { product: Product }) {
           {product.brand}
         </span>
         <div className="absolute right-2 top-2 z-20 flex flex-col items-end gap-1.5">
-          {hasDiscount && (
-            <span className="rounded bg-tl-red px-2 py-1 text-xs font-bold text-tl-white">
-              -{product.discountPercent}%
-            </span>
-          )}
           <FavoriteButton
             productId={product.id}
             productName={product.name}
             className="h-7 w-7 sm:h-8 sm:w-8"
           />
+          {hasDiscount && (
+            <span className="rounded bg-tl-red px-2 py-1 text-xs font-bold text-tl-white">
+              -{product.discountPercent}%
+            </span>
+          )}
         </div>
       </div>
 

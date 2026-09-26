@@ -38,6 +38,26 @@ function GlowStreak({
   );
 }
 
+function GlowOrb({
+  top,
+  right,
+  sizeClass,
+  opacityClass,
+}: {
+  top: string;
+  right: string;
+  sizeClass: string;
+  opacityClass: string;
+}) {
+  return (
+    <div
+      className={`absolute animate-drift rounded-full bg-tl-red blur-3xl ${sizeClass} ${opacityClass}`}
+      style={{ top, right }}
+      aria-hidden="true"
+    />
+  );
+}
+
 function TapeBand({
   top,
   rotate,
@@ -69,8 +89,21 @@ function TapeBand({
 export default function BrandBackground({
   variant = "subtle",
 }: {
-  variant?: "full" | "subtle" | "ambient" | "mobileHero";
+  variant?: "full" | "subtle" | "ambient" | "mobileHero" | "desktopHero";
 }) {
+  if (variant === "desktopHero") {
+    // Desktop-only: a soft red glow drifting behind the product photo, plus
+    // a faint diagonal streak and radar accent, so the hero isn't just flat
+    // black next to the framed shot.
+    return (
+      <div className="pointer-events-none absolute inset-0 hidden overflow-hidden text-white/20 sm:block">
+        <GlowOrb top="8%" right="-4%" sizeClass="h-[420px] w-[420px]" opacityClass="opacity-25" />
+        <GlowStreak top="4%" rotate="-rotate-[10deg]" blurClass="blur-2xl" opacityClass="opacity-25" heightClass="h-16" />
+        <RadarArcs opacityClass="opacity-20" />
+      </div>
+    );
+  }
+
   if (variant === "mobileHero") {
     // Mobile-only: a crisp, readable tape band up top (crossing the
     // headline), and a steeper, heavily blurred glowing streak further
