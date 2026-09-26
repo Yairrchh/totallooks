@@ -3,6 +3,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import ProductCard from "./ProductCard";
+import Reveal from "./Reveal";
 import Select from "./Select";
 import {
   products,
@@ -203,13 +204,9 @@ export default function FilterBar() {
           className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4"
         >
           {filtered.map((p, i) => (
-            <div
-              key={p.id}
-              className="animate-fade-up"
-              style={{ animationDelay: `${(i % 8) * 60}ms` }}
-            >
+            <Reveal key={p.id} delay={(i % 8) * 60}>
               <ProductCard product={p} />
-            </div>
+            </Reveal>
           ))}
         </div>
       )}

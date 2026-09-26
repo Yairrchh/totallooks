@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useFavorites } from "@/context/FavoritesContext";
 import { products } from "@/data/products";
 import ProductCard from "./ProductCard";
+import Reveal from "./Reveal";
 
 export default function FavoritesList() {
   const { ids } = useFavorites();
@@ -26,13 +27,9 @@ export default function FavoritesList() {
   return (
     <div className="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4">
       {favorites.map((p, i) => (
-        <div
-          key={p.id}
-          className="animate-fade-up"
-          style={{ animationDelay: `${(i % 8) * 60}ms` }}
-        >
+        <Reveal key={p.id} delay={(i % 8) * 60}>
           <ProductCard product={p} />
-        </div>
+        </Reveal>
       ))}
     </div>
   );
