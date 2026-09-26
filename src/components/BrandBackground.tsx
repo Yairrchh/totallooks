@@ -31,7 +31,7 @@ function GlowStreak({
 }) {
   return (
     <div
-      className={`absolute left-[-20%] ${heightClass} w-[140%] ${top ? "" : "-bottom-10"} ${rotate} bg-gradient-to-r from-transparent via-tl-red to-transparent ${blurClass} ${opacityClass}`}
+      className={`absolute left-[-20%] ${heightClass} w-[140%] ${top ? "" : "-bottom-10"} ${rotate} animate-drift bg-gradient-to-r from-transparent via-tl-red to-transparent ${blurClass} ${opacityClass}`}
       style={top ? { top } : undefined}
       aria-hidden="true"
     />
@@ -78,7 +78,7 @@ export default function BrandBackground({
     // campaign shot.
     return (
       <div className="pointer-events-none absolute inset-0 overflow-hidden text-white/25 sm:hidden">
-        <TapeBand top="16%" rotate="-rotate-[3deg]" opacityClass="opacity-90" blurClass="blur-[1px]" />
+        <TapeBand top="88%" rotate="-rotate-[3deg]" opacityClass="opacity-90" blurClass="blur-[1px]" />
         <GlowStreak
           top="62%"
           rotate="-rotate-[22deg]"

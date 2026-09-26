@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { products } from "@/data/products";
 import AddToCartForm from "@/components/AddToCartForm";
 import BackButton from "@/components/BackButton";
+import FavoriteButton from "@/components/FavoriteButton";
 import { effectivePrice } from "@/lib/pricing";
 
 export function generateStaticParams() {
@@ -46,7 +47,7 @@ export default async function ProductPage({
   return (
     <main className="mx-auto max-w-5xl px-4 py-10">
       <div className="grid gap-8 sm:grid-cols-2">
-        <div className="relative aspect-[3/4] overflow-hidden rounded-lg bg-tl-surface">
+        <div className="relative aspect-[3/4] animate-slide-in-left overflow-hidden rounded-lg bg-tl-surface">
           <BackButton />
           <Image
             src={product.images[0]}
@@ -63,9 +64,16 @@ export default async function ProductPage({
           )}
         </div>
 
-        <div className="flex flex-col gap-4">
+        <div className="flex animate-slide-in-right flex-col gap-4" style={{ animationDelay: "120ms" }}>
           <p className="text-xs font-semibold uppercase tracking-wide text-tl-grey">{product.brand}</p>
-          <h1 className="font-display text-3xl uppercase">{product.name}</h1>
+          <div className="flex items-center gap-3">
+            <h1 className="font-display text-3xl uppercase">{product.name}</h1>
+            <FavoriteButton
+              productId={product.id}
+              productName={product.name}
+              className="h-9 w-9 shrink-0 bg-tl-surface"
+            />
+          </div>
           <div className="flex items-baseline gap-3">
             <p className="font-display text-2xl text-tl-red">${effectivePrice(product)}</p>
             {product.discountPercent && (

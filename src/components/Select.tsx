@@ -65,7 +65,7 @@ export default function Select({
       {isOpen && (
         <ul
           role="listbox"
-          className="absolute left-0 top-full z-30 mt-1 max-h-64 w-full min-w-max overflow-y-auto rounded border border-white/20 bg-tl-surface py-1 shadow-xl shadow-black/50"
+          className="absolute left-0 top-full z-30 mt-1 max-h-64 w-full min-w-max origin-top animate-scale-in overflow-y-auto rounded border border-white/20 bg-tl-surface py-1 shadow-xl shadow-black/50"
         >
           {options.map((o) => (
             <li key={o.value} role="option" aria-selected={o.value === value}>

@@ -19,7 +19,7 @@ export default function CartDrawer() {
         onClick={close}
       />
       <aside
-        className={`absolute right-0 top-0 h-full w-full max-w-md transform bg-tl-surface transition-transform ${isOpen ? "translate-x-0" : "translate-x-full"} flex flex-col`}
+        className={`absolute right-0 top-0 h-full w-full max-w-md transform bg-tl-surface transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] ${isOpen ? "translate-x-0" : "translate-x-full"} flex flex-col`}
       >
         <div className="flex items-center justify-between border-b border-white/10 px-5 py-4">
           <h2 className="font-display text-xl uppercase">Tu Carrito</h2>
@@ -42,8 +42,12 @@ export default function CartDrawer() {
             </div>
           ) : (
             <ul className="flex flex-col gap-4">
-              {lines.map((l) => (
-                <li key={l.lineId} className="flex gap-3 border-b border-white/10 pb-4">
+              {lines.map((l, i) => (
+                <li
+                  key={l.lineId}
+                  className="flex animate-fade-up gap-3 border-b border-white/10 pb-4"
+                  style={{ animationDelay: `${i * 60}ms` }}
+                >
                   <div className="relative h-20 w-16 shrink-0 overflow-hidden rounded bg-tl-black">
                     <Image src={l.product.images[0]} alt={l.product.name} fill className="object-cover" sizes="64px" />
                   </div>
@@ -63,7 +67,7 @@ export default function CartDrawer() {
                       <button
                         type="button"
                         onClick={() => updateQty(l.lineId, l.qty - 1)}
-                        className="h-6 w-6 rounded border border-white/20 hover:border-tl-red"
+                        className="h-6 w-6 rounded border border-white/20 transition-transform duration-200 hover:border-tl-red active:scale-90"
                         aria-label="Restar cantidad"
                       >
                         −
@@ -72,7 +76,7 @@ export default function CartDrawer() {
                       <button
                         type="button"
                         onClick={() => updateQty(l.lineId, l.qty + 1)}
-                        className="h-6 w-6 rounded border border-white/20 hover:border-tl-red"
+                        className="h-6 w-6 rounded border border-white/20 transition-transform duration-200 hover:border-tl-red active:scale-90"
                         aria-label="Sumar cantidad"
                       >
                         +
@@ -81,7 +85,7 @@ export default function CartDrawer() {
                         type="button"
                         onClick={() => removeItem(l.lineId)}
                         aria-label={`Quitar ${l.product.name} del carrito`}
-                        className="ml-auto text-tl-grey hover:text-tl-red"
+                        className="ml-auto text-tl-grey transition-transform duration-200 hover:scale-110 hover:text-tl-red active:scale-90"
                       >
                         <svg
                           xmlns="http://www.w3.org/2000/svg"

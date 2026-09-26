@@ -10,7 +10,7 @@ export default function BackButton() {
       type="button"
       onClick={() => router.back()}
       aria-label="Volver"
-      className="absolute right-3 top-3 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-tl-black/70 text-tl-white backdrop-blur hover:bg-tl-red"
+      className="absolute right-3 top-3 z-10 flex h-9 w-9 items-center justify-center rounded-full bg-tl-black/70 text-tl-white backdrop-blur transition-transform duration-200 hover:scale-110 hover:bg-tl-red active:scale-90"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Anton, Barlow } from "next/font/google";
 import { CartProvider } from "@/context/CartContext";
+import { FavoritesProvider } from "@/context/FavoritesContext";
 import Header from "@/components/Header";
 import CartDrawer from "@/components/CartDrawer";
 import Footer from "@/components/Footer";
@@ -37,12 +38,14 @@ export default function RootLayout({
         <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
           <BrandBackground variant="ambient" />
         </div>
-        <CartProvider>
-          <Header />
-          {children}
-          <Footer />
-          <CartDrawer />
-        </CartProvider>
+        <FavoritesProvider>
+          <CartProvider>
+            <Header />
+            {children}
+            <Footer />
+            <CartDrawer />
+          </CartProvider>
+        </FavoritesProvider>
       </body>
     </html>
   );

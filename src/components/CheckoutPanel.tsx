@@ -50,7 +50,7 @@ export default function CheckoutPanel({
 
       <div className="flex flex-col gap-2">
         {isConfirming && (
-          <p className="text-center text-xs text-tl-grey">
+          <p className="animate-fade-up text-center text-xs text-tl-grey">
             ¿Confirmás el pedido? Se va a abrir WhatsApp.
           </p>
         )}
@@ -59,7 +59,7 @@ export default function CheckoutPanel({
           type="button"
           onClick={handleCheckoutClick}
           disabled={isEmpty}
-          className="w-full rounded-full bg-tl-red py-3 text-center font-semibold uppercase tracking-wide text-tl-white transition hover:bg-tl-red-dark disabled:cursor-not-allowed disabled:bg-white/10 disabled:text-tl-grey"
+          className="w-full rounded-full bg-tl-red py-3 text-center font-semibold uppercase tracking-wide text-tl-white transition-all duration-200 hover:bg-tl-red-dark active:scale-[0.97] disabled:cursor-not-allowed disabled:bg-white/10 disabled:text-tl-grey"
         >
           {isConfirming ? "Sí, enviar pedido" : "Finalizar pedido por WhatsApp"}
         </button>
@@ -68,7 +68,7 @@ export default function CheckoutPanel({
           <button
             type="button"
             onClick={() => setIsConfirming(false)}
-            className="w-full rounded-full border border-white/20 py-3 text-center text-sm font-semibold uppercase tracking-wide transition hover:border-tl-red hover:text-tl-red"
+            className="w-full animate-fade-up rounded-full border border-white/20 py-3 text-center text-sm font-semibold uppercase tracking-wide transition-all duration-200 hover:border-tl-red hover:text-tl-red active:scale-[0.97]"
           >
             Cancelar
           </button>

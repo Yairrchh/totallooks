@@ -9,6 +9,13 @@ export default function AddToCartForm({ product }: { product: Product }) {
   const [size, setSize] = useState(product.sizes[0]);
   const [color, setColor] = useState(product.colors[0]);
   const [qty, setQty] = useState(1);
+  const [added, setAdded] = useState(false);
+
+  const handleAdd = () => {
+    addItem(product, size, color, qty);
+    setAdded(true);
+    setTimeout(() => setAdded(false), 400);
+  };
 
   return (
     <div className="flex flex-col gap-4">
@@ -20,7 +27,7 @@ export default function AddToCartForm({ product }: { product: Product }) {
               key={s}
               type="button"
               onClick={() => setSize(s)}
-              className={`rounded border px-3 py-1 text-sm ${
+              className={`rounded border px-3 py-1 text-sm transition-all duration-200 active:scale-90 ${
                 size === s ? "border-tl-red bg-tl-red text-tl-white" : "border-white/20 hover:border-tl-red"
               }`}
             >
@@ -38,7 +45,7 @@ export default function AddToCartForm({ product }: { product: Product }) {
               key={c}
               type="button"
               onClick={() => setColor(c)}
-              className={`rounded border px-3 py-1 text-sm ${
+              className={`rounded border px-3 py-1 text-sm transition-all duration-200 active:scale-90 ${
                 color === c ? "border-tl-red bg-tl-red text-tl-white" : "border-white/20 hover:border-tl-red"
               }`}
             >
@@ -52,7 +59,7 @@ export default function AddToCartForm({ product }: { product: Product }) {
         <button
           type="button"
           onClick={() => setQty((q) => Math.max(1, q - 1))}
-          className="h-8 w-8 rounded border border-white/20 hover:border-tl-red"
+          className="h-8 w-8 rounded border border-white/20 transition-transform duration-200 hover:border-tl-red active:scale-90"
         >
           −
         </button>
@@ -60,7 +67,7 @@ export default function AddToCartForm({ product }: { product: Product }) {
         <button
           type="button"
           onClick={() => setQty((q) => q + 1)}
-          className="h-8 w-8 rounded border border-white/20 hover:border-tl-red"
+          className="h-8 w-8 rounded border border-white/20 transition-transform duration-200 hover:border-tl-red active:scale-90"
         >
           +
         </button>
@@ -68,10 +75,10 @@ export default function AddToCartForm({ product }: { product: Product }) {
 
       <button
         type="button"
-        onClick={() => addItem(product, size, color, qty)}
-        className="rounded-full bg-tl-red py-3 font-semibold uppercase tracking-wide hover:bg-tl-red-dark"
+        onClick={handleAdd}
+        className={`rounded-full bg-tl-red py-3 font-semibold uppercase tracking-wide transition-all duration-200 hover:bg-tl-red-dark active:scale-95 ${added ? "animate-pop" : ""}`}
       >
-        Agregar al carrito
+        {added ? "¡Agregado!" : "Agregar al carrito"}
       </button>
     </div>
   );

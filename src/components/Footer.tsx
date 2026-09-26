@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import Reveal from "./Reveal";
 import { categoryLabels, type Category } from "@/data/products";
 import { SELLER_WHATSAPP_NUMBER } from "@/lib/whatsapp";
 
@@ -39,7 +40,7 @@ function InstagramIcon() {
 export default function Footer() {
   return (
     <footer className="border-t border-white/10 bg-tl-black px-4 py-12">
-      <div className="mx-auto grid max-w-6xl gap-10 sm:grid-cols-3">
+      <Reveal as="div" className="mx-auto grid max-w-6xl gap-10 sm:grid-cols-3">
         <div className="flex flex-col gap-3">
           <Image
             src="/logo.svg"
@@ -83,7 +84,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Escribinos por WhatsApp"
-              className="flex h-10 w-10 items-center justify-center rounded-full bg-[#25D366] text-white transition hover:opacity-85"
+              className="flex h-10 w-10 items-center justify-center rounded-full bg-[#25D366] text-white transition hover:scale-110 hover:opacity-85"
             >
               <WhatsAppIcon />
             </a>
@@ -92,7 +93,7 @@ export default function Footer() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Seguinos en Instagram"
-              className="flex h-10 w-10 items-center justify-center rounded-full text-white transition hover:opacity-85"
+              className="flex h-10 w-10 items-center justify-center rounded-full text-white transition hover:scale-110 hover:opacity-85"
               style={{
                 background:
                   "linear-gradient(45deg, #FEDA75, #FA7E1E, #D62976, #962FBF, #4F5BD5)",
@@ -102,7 +103,7 @@ export default function Footer() {
             </a>
           </div>
         </div>
-      </div>
+      </Reveal>
 
       <div className="mx-auto mt-10 max-w-6xl border-t border-white/10 pt-6 text-xs text-tl-grey">
         © {new Date().getFullYear()} TOTAL LOOKS. Todos los derechos reservados.
