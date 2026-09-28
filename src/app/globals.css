@@ -24,6 +24,7 @@
   --animate-slide-in-left: slide-in-left 0.7s cubic-bezier(0.16, 1, 0.3, 1) backwards;
   --animate-drift: drift 14s ease-in-out infinite;
   --animate-pop: pop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  --animate-marquee: marquee 30s linear infinite;
 
   @keyframes fade-up {
     from {
@@ -80,6 +81,14 @@
     }
     50% {
       translate: 3% 2%;
+    }
+  }
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(-50%);
     }
   }
   @keyframes pop {

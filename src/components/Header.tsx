@@ -10,7 +10,7 @@ import { categoryLabels } from "@/data/products";
 
 function NavLink({ href, children }: { href: string; children: React.ReactNode }) {
   return (
-    <Link href={href} className="group relative py-1 hover:text-tl-red">
+    <Link href={href} className="group relative py-1 text-tl-white/70 transition-colors duration-200 hover:text-tl-white">
       {children}
       <span className="absolute inset-x-0 -bottom-0.5 h-[1.5px] origin-left scale-x-0 bg-tl-red transition-transform duration-300 ease-out group-hover:scale-x-100" />
     </Link>
@@ -46,7 +46,7 @@ export default function Header() {
   }, [favCount]);
 
   return (
-    <header className="sticky top-0 z-40 animate-fade-up border-b border-white/10 bg-tl-black/95 backdrop-blur">
+    <header className="animate-fade-up border-b border-white/10 bg-tl-black/95 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
         <Link href="/" className="shrink-0 transition-transform hover:scale-105">
           <Image
@@ -59,7 +59,7 @@ export default function Header() {
           />
         </Link>
 
-        <nav className="hidden items-center gap-6 text-sm font-semibold uppercase tracking-wide sm:flex">
+        <nav className="hidden items-center gap-8 text-xs font-medium uppercase tracking-[0.2em] sm:flex">
           <NavLink href="/catalogo?categoria=zapatos">{categoryLabels.zapatos}</NavLink>
           <NavLink href="/catalogo?categoria=ropa">{categoryLabels.ropa}</NavLink>
           <NavLink href="/catalogo?categoria=perfumes">{categoryLabels.perfumes}</NavLink>

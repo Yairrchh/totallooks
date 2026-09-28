@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Anton, Barlow } from "next/font/google";
 import { CartProvider } from "@/context/CartContext";
 import { FavoritesProvider } from "@/context/FavoritesContext";
+import AnnouncementBar from "@/components/AnnouncementBar";
 import Header from "@/components/Header";
 import CartDrawer from "@/components/CartDrawer";
 import Footer from "@/components/Footer";
@@ -16,7 +17,7 @@ const anton = Anton({
 });
 
 const barlow = Barlow({
-  weight: ["400", "600", "700"],
+  weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
   variable: "--font-barlow",
   display: "swap",
@@ -40,7 +41,10 @@ export default function RootLayout({
         </div>
         <FavoritesProvider>
           <CartProvider>
-            <Header />
+            <div className="sticky top-0 z-40">
+              <AnnouncementBar />
+              <Header />
+            </div>
             {children}
             <Footer />
             <CartDrawer />

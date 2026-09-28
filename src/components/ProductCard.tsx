@@ -38,7 +38,7 @@ export default function ProductCard({ product }: { product: Product }) {
           className="object-cover transition duration-300 group-hover:scale-105"
           sizes="(max-width: 640px) 50vw, 25vw"
         />
-        <span className="absolute left-2 top-2 rounded bg-tl-black/80 px-2 py-1 text-[10px] font-semibold uppercase tracking-wide text-tl-grey">
+        <span className="absolute left-2 top-2 rounded bg-tl-black/80 px-2 py-1 text-[10px] font-medium uppercase tracking-[0.15em] text-tl-white/70">
           {product.brand}
         </span>
         <div className="absolute right-2 top-2 z-20 flex flex-col items-end gap-1.5">
@@ -56,11 +56,13 @@ export default function ProductCard({ product }: { product: Product }) {
       </div>
 
       <div className="relative flex flex-1 flex-col gap-1 p-3 pr-10 sm:pr-12">
-        <h3 className="font-semibold leading-tight">{product.name}</h3>
+        <h3 className="text-xs font-medium uppercase leading-snug tracking-[0.06em] sm:tracking-[0.12em]">{product.name}</h3>
         <div className="mt-auto flex items-baseline gap-2">
-          <p className="font-display text-lg text-tl-red">${price}</p>
+          <p className={`text-sm ${hasDiscount ? "font-medium text-tl-red" : "text-tl-grey"}`}>
+            ${price}
+          </p>
           {hasDiscount && (
-            <p className="text-sm text-tl-grey line-through">${product.price}</p>
+            <p className="text-xs text-tl-grey/70 line-through">${product.price}</p>
           )}
         </div>
 
