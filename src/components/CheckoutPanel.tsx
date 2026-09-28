@@ -43,7 +43,7 @@ export default function CheckoutPanel({
         className="mb-4 w-full rounded border border-white/20 bg-tl-black px-3 py-2 text-sm outline-none focus:border-tl-red"
       />
 
-      <div className="mb-4 flex items-center justify-between font-display text-lg uppercase">
+      <div className="mb-4 flex items-center justify-between text-sm font-medium uppercase tracking-[0.2em]">
         <span>Total</span>
         <span>${subtotal.toFixed(2)}</span>
       </div>
@@ -59,7 +59,7 @@ export default function CheckoutPanel({
           type="button"
           onClick={handleCheckoutClick}
           disabled={isEmpty}
-          className="w-full rounded-full bg-tl-red py-3 text-center font-semibold uppercase tracking-wide text-tl-white transition-all duration-200 hover:bg-tl-red-dark active:scale-[0.97] disabled:cursor-not-allowed disabled:bg-white/10 disabled:text-tl-grey"
+          className="w-full rounded-full bg-tl-red py-3 text-center text-xs font-medium uppercase tracking-[0.15em] text-tl-white transition-all duration-200 hover:bg-tl-red-dark active:scale-[0.97] disabled:cursor-not-allowed disabled:bg-white/10 disabled:text-tl-grey"
         >
           {isConfirming ? "Sí, enviar pedido" : "Finalizar pedido por WhatsApp"}
         </button>
@@ -68,7 +68,7 @@ export default function CheckoutPanel({
           <button
             type="button"
             onClick={() => setIsConfirming(false)}
-            className="w-full animate-fade-up rounded-full border border-white/20 py-3 text-center text-sm font-semibold uppercase tracking-wide transition-all duration-200 hover:border-tl-red hover:text-tl-red active:scale-[0.97]"
+            className="w-full animate-fade-up rounded-full border border-white/20 py-3 text-center text-xs font-medium uppercase tracking-[0.15em] transition-all duration-200 hover:border-tl-red hover:text-tl-red active:scale-[0.97]"
           >
             Cancelar
           </button>
@@ -78,7 +78,7 @@ export default function CheckoutPanel({
           <Link
             href="/catalogo"
             onClick={close}
-            className="w-full rounded-full border border-white/20 py-3 text-center text-sm font-semibold uppercase tracking-wide transition hover:border-tl-red hover:text-tl-red"
+            className="w-full rounded-full border border-white/20 py-3 text-center text-xs font-medium uppercase tracking-[0.15em] transition hover:border-tl-red hover:text-tl-red"
           >
             Seguir comprando
           </Link>

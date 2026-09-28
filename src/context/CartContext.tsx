@@ -23,6 +23,7 @@ type CartContextValue = {
   addItem: (product: Product, size: string, color: string, qty: number) => void;
   removeItem: (lineId: string) => void;
   updateQty: (lineId: string, qty: number) => void;
+  updateLine: (lineId: string, size: string, color: string) => void;
   clearCart: () => void;
   subtotal: number;
   itemCount: number;
@@ -100,6 +101,27 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     );
   };
 
+  // Size/color are part of lineId, so an edit that lands on a combination
+  // already in the cart merges into that line instead of duplicating it.
+  const updateLine = (lineId: string, size: string, color: string) => {
+    setLines((prev) => {
+      const target = prev.find((l) => l.lineId === lineId);
+      if (!target) return prev;
+      const newId = `${target.product.id}-${size}-${color}`;
+      if (newId === lineId) return prev;
+      if (prev.some((l) => l.lineId === newId)) {
+        return prev
+          .filter((l) => l.lineId !== lineId)
+          .map((l) =>
+            l.lineId === newId ? { ...l, qty: l.qty + target.qty } : l
+          );
+      }
+      return prev.map((l) =>
+        l.lineId === lineId ? { ...l, lineId: newId, size, color } : l
+      );
+    });
+  };
+
   const clearCart = () => {
     setLines([]);
   };
@@ -120,6 +142,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         addItem,
         removeItem,
         updateQty,
+        updateLine,
         clearCart,
         subtotal,
         itemCount,
