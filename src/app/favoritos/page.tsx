@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import FavoritesList from "@/components/FavoritesList";
 
 export const metadata: Metadata = {
-  title: "Favoritos — TOTAL LOOKS",
+  title: "Favoritos — URBAN SPORT",
   description: "Los productos que guardaste para comprar más adelante.",
 };
 

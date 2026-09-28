@@ -1,5 +1,5 @@
 const messages = [
-  "Tu look sube, los precios bajan",
+  "Muévete con estilo, ahorra en cada paso",
   "Nueva colección: nuevos estilos",
   "Enviamos a todo el país en 24 horas",
   "Pedidos por WhatsApp",

@@ -10,7 +10,7 @@ type FavoritesContextValue = {
 };
 
 const FavoritesContext = createContext<FavoritesContextValue | null>(null);
-const STORAGE_KEY = "totallooks-favorites";
+const STORAGE_KEY = "urbansport-favorites";
 
 function readStoredIds(): string[] {
   try {

@@ -24,7 +24,7 @@ const barlow = Barlow({
 });
 
 export const metadata: Metadata = {
-  title: "TOTAL LOOKS — Tu look sube, los precios bajan",
+  title: "URBAN SPORT — Muévete con estilo, ahorra en cada paso",
   description: "Ropa deportiva y calzado para hombre y mujer.",
 };
 

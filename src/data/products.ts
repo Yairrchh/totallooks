@@ -122,14 +122,14 @@ export const products: Product[] = [
     name: "Conjunto Deportivo Total",
     category: "ropa",
     gender: "caballero",
-    brand: "TOTAL LOOKS",
+    brand: "URBAN SPORT",
     price: 65,
     sizes: ropaSizes,
     colors: ["Negro", "Rojo"],
     images: [
       "https://images.unsplash.com/photo-1483721310020-03333e577078?w=800&q=80",
     ],
-    description: "Conjunto buzo + jogger a juego, línea propia TOTAL LOOKS.",
+    description: "Conjunto buzo + jogger a juego, línea propia URBAN SPORT.",
   },
   {
     id: "p07",
@@ -201,7 +201,7 @@ export const products: Product[] = [
     name: "Conjunto Yoga Total",
     category: "ropa",
     gender: "dama",
-    brand: "TOTAL LOOKS",
+    brand: "URBAN SPORT",
     price: 52,
     sizes: ["XS", "S", "M", "L", "XL"],
     colors: ["Negro", "Rojo"],
@@ -209,7 +209,7 @@ export const products: Product[] = [
       "https://images.unsplash.com/photo-1518310383802-640c2de311b2?w=800&q=80",
     ],
     description:
-      "Conjunto top + legging línea propia TOTAL LOOKS, tela suave de alta compresión.",
+      "Conjunto top + legging línea propia URBAN SPORT, tela suave de alta compresión.",
   },
   {
     id: "p12",
@@ -345,14 +345,14 @@ export const products: Product[] = [
     name: "Botas Outdoor",
     category: "zapatos",
     gender: "caballero",
-    brand: "TOTAL LOOKS",
+    brand: "URBAN SPORT",
     price: 70,
     sizes: shoeSizesCaballero,
     colors: ["Negro", "Gris"],
     images: [
       "https://images.unsplash.com/photo-1520639888713-7851133b1ed0?w=800&q=80",
     ],
-    description: "Bota resistente línea propia TOTAL LOOKS, suela reforzada.",
+    description: "Bota resistente línea propia URBAN SPORT, suela reforzada.",
   },
   {
     id: "p21",
@@ -360,7 +360,7 @@ export const products: Product[] = [
     name: "Perfume Total Energy",
     category: "perfumes",
     gender: "caballero",
-    brand: "TOTAL LOOKS",
+    brand: "URBAN SPORT",
     price: 32,
     discountPercent: 25,
     sizes: ["50ml", "100ml"],
@@ -369,7 +369,7 @@ export const products: Product[] = [
       "https://images.unsplash.com/photo-1523293182086-7651a899d37f?w=800&q=80",
     ],
     description:
-      "Fragancia intensa y fresca, línea propia TOTAL LOOKS, ideal para uso diario.",
+      "Fragancia intensa y fresca, línea propia URBAN SPORT, ideal para uso diario.",
   },
   {
     id: "p22",
@@ -407,14 +407,14 @@ export const products: Product[] = [
     name: "Perfume Total Bloom",
     category: "perfumes",
     gender: "dama",
-    brand: "TOTAL LOOKS",
+    brand: "URBAN SPORT",
     price: 30,
     sizes: ["50ml"],
     colors: ["Original"],
     images: [
       "https://images.unsplash.com/photo-1587017539504-67cfbddac569?w=800&q=80",
     ],
-    description: "Fragancia floral suave, línea propia TOTAL LOOKS.",
+    description: "Fragancia floral suave, línea propia URBAN SPORT.",
   },
   {
     id: "p25",
@@ -453,7 +453,7 @@ export const products: Product[] = [
     name: "Mochila Training",
     category: "accesorios",
     gender: "unisex",
-    brand: "TOTAL LOOKS",
+    brand: "URBAN SPORT",
     price: 45,
     sizes: ["Único"],
     colors: ["Negro"],
@@ -461,7 +461,7 @@ export const products: Product[] = [
       "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=800&q=80",
     ],
     description:
-      "Mochila deportiva resistente al agua, compartimento para laptop, línea propia TOTAL LOOKS.",
+      "Mochila deportiva resistente al agua, compartimento para laptop, línea propia URBAN SPORT.",
   },
   {
     id: "p28",

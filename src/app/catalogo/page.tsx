@@ -3,7 +3,7 @@ import { Suspense } from "react";
 import FilterBar from "@/components/FilterBar";
 
 export const metadata: Metadata = {
-  title: "Catálogo — TOTAL LOOKS",
+  title: "Catálogo — URBAN SPORT",
   description: "Ropa deportiva, calzado, perfumes y accesorios para hombre y mujer.",
 };
 

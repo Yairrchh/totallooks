@@ -9,8 +9,8 @@ export function buildOrderMessage(
   customerName?: string
 ): string {
   const header = customerName
-    ? `Hola, soy ${customerName}. Quiero hacer este pedido en TOTAL LOOKS:`
-    : "Hola, quiero hacer este pedido en TOTAL LOOKS:";
+    ? `Hola, soy ${customerName}. Quiero hacer este pedido en URBAN SPORT:`
+    : "Hola, quiero hacer este pedido en URBAN SPORT:";
 
   const items = lines
     .map((l) => {

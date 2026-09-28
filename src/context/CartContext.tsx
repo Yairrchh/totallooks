@@ -33,7 +33,7 @@ type CartContextValue = {
 };
 
 const CartContext = createContext<CartContextValue | null>(null);
-const STORAGE_KEY = "totallooks-cart";
+const STORAGE_KEY = "urbansport-cart";
 
 function readStoredLines(): CartLine[] {
   try {

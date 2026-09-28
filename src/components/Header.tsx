@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
+import Logo from "./Logo";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState } from "react";
 import { useCart } from "@/context/CartContext";
@@ -49,14 +49,7 @@ export default function Header() {
     <header className="animate-fade-up border-b border-white/10 bg-tl-black/95 backdrop-blur">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3">
         <Link href="/" className="shrink-0 transition-transform hover:scale-105">
-          <Image
-            src="/logo.svg"
-            alt="TOTAL LOOKS"
-            width={92}
-            height={40}
-            priority
-            className="h-10 w-auto"
-          />
+          <Logo className="text-3xl" />
         </Link>
 
         <nav className="hidden items-center gap-8 text-xs font-medium uppercase tracking-[0.2em] sm:flex">

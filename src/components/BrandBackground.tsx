@@ -1,4 +1,4 @@
-const TAPE_TEXT = Array(14).fill("TOTAL BOOST").join("  •  ");
+const TAPE_TEXT = Array(14).fill("URBAN SALE").join("  •  ");
 
 function RadarArcs({ opacityClass }: { opacityClass: string }) {
   return (
@@ -84,7 +84,7 @@ function TapeBand({
 
 /**
  * Layered brand background — blurred "caution tape" bands, radar arcs, and a
- * glowing diagonal streak, echoing the client's own Instagram campaign look.
+ * glowing diagonal streak, echoing a bold sportswear campaign look.
  */
 export default function BrandBackground({
   variant = "subtle",

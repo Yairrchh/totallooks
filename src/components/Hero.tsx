@@ -13,20 +13,20 @@ export default function Hero() {
             className="order-4 animate-fade-up rounded-full border border-tl-red px-4 py-1 text-xs font-semibold uppercase tracking-widest text-tl-red sm:order-none"
             style={{ animationDelay: "0ms" }}
           >
-            Total Boost · Hasta 60% OFF
+            Urban Sale · Hasta 60% OFF
           </span>
           <h1 className="font-display text-5xl uppercase leading-[0.95] sm:text-7xl">
             <span
               className="block animate-slide-in-left"
               style={{ animationDelay: "120ms" }}
             >
-              Tu look sube.
+              Más estilo.
             </span>
             <span
               className="block animate-slide-in-right text-tl-red"
               style={{ animationDelay: "220ms" }}
             >
-              Los precios bajan.
+              Menos precio.
             </span>
           </h1>
           <p

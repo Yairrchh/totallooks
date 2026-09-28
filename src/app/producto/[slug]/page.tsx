@@ -18,10 +18,10 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   const product = products.find((p) => p.slug === slug);
-  if (!product) return { title: "Producto no encontrado — TOTAL LOOKS" };
+  if (!product) return { title: "Producto no encontrado — URBAN SPORT" };
 
   const price = effectivePrice(product);
-  const title = `${product.name} — $${price} | TOTAL LOOKS`;
+  const title = `${product.name} — $${price} | URBAN SPORT`;
   const description = `${product.description} ${product.brand} · Disponible en talla ${product.sizes.join(", ")}.`;
 
   return {

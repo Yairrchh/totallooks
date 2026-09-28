@@ -1,15 +1,13 @@
-import Image from "next/image";
 import Link from "next/link";
 import Reveal from "./Reveal";
+import Logo from "./Logo";
 import { categoryLabels, type Category } from "@/data/products";
 import { SELLER_WHATSAPP_NUMBER } from "@/lib/whatsapp";
 
 const footerCategories: Category[] = ["zapatos", "ropa", "perfumes", "accesorios"];
 
-const INSTAGRAM_HANDLE = "totallooks.val";
-
 const contactMessage = encodeURIComponent(
-  "Hola, quiero más información sobre TOTAL LOOKS."
+  "Hola, quiero más información sobre URBAN SPORT."
 );
 
 function WhatsAppIcon() {
@@ -20,37 +18,14 @@ function WhatsAppIcon() {
   );
 }
 
-function InstagramIcon() {
-  return (
-    <svg
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth="1.8"
-      className="h-5 w-5"
-      aria-hidden="true"
-    >
-      <rect x="3" y="3" width="18" height="18" rx="5" />
-      <circle cx="12" cy="12" r="4" />
-      <circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none" />
-    </svg>
-  );
-}
-
 export default function Footer() {
   return (
     <footer className="border-t border-white/10 bg-tl-black px-4 py-12">
       <Reveal as="div" className="mx-auto grid max-w-6xl gap-10 sm:grid-cols-3">
         <div className="flex flex-col gap-3">
-          <Image
-            src="/logo.svg"
-            alt="TOTAL LOOKS"
-            width={88}
-            height={38}
-            className="h-9 w-auto"
-          />
+          <Logo className="text-2xl" />
           <p className="max-w-xs text-sm text-tl-grey">
-            Ropa deportiva y calzado para hombre y mujer. Tu look sube, los precios bajan.
+            Ropa deportiva y calzado para hombre y mujer. Muévete con estilo, ahorra en cada paso.
           </p>
         </div>
 
@@ -88,25 +63,12 @@ export default function Footer() {
             >
               <WhatsAppIcon />
             </a>
-            <a
-              href={`https://instagram.com/${INSTAGRAM_HANDLE}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Seguinos en Instagram"
-              className="flex h-10 w-10 items-center justify-center rounded-full text-white transition hover:scale-110 hover:opacity-85"
-              style={{
-                background:
-                  "linear-gradient(45deg, #FEDA75, #FA7E1E, #D62976, #962FBF, #4F5BD5)",
-              }}
-            >
-              <InstagramIcon />
-            </a>
           </div>
         </div>
       </Reveal>
 
       <div className="mx-auto mt-10 max-w-6xl border-t border-white/10 pt-6 text-xs text-tl-grey">
-        © {new Date().getFullYear()} TOTAL LOOKS. Todos los derechos reservados.
+        © {new Date().getFullYear()} URBAN SPORT. Todos los derechos reservados.
       </div>
     </footer>
   );
